@@ -1,24 +1,24 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import { MantineProvider } from '@mantine/core';
+import FlavanoidsTable from './components/FlavanoidsTable';
+import GammaTable from './components/GammaTable';
+import rawData from './assets/Wine-Data.json';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <MantineProvider>
+      <div className="App">
+        <h1>Wine Data Analysis</h1>
+        
+        <h2>Flavanoids Statistics</h2>
+        <FlavanoidsTable data={rawData} />
+
+        <h2>Gamma Statistics</h2>
+        <GammaTable data={rawData} />
+      </div>
+    </MantineProvider>
   );
 }
 
